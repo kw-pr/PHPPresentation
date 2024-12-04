@@ -174,6 +174,11 @@ class PptCharts extends AbstractDecoratorWriter
         // Fill
         $this->writeFill($objWriter, $chart->getFill());
 
+        // Write outline
+        $outline = new Outline();
+        $outline->getFill()->setFillType();
+        $this->writeOutline($objWriter, $outline);
+
         // Border
         if (Border::LINE_NONE != $chart->getBorder()->getLineStyle()) {
             $this->writeBorder($objWriter, $chart->getBorder(), '');
